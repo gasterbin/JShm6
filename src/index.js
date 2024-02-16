@@ -13,19 +13,20 @@ function calculateWinnerRating(winnerRating, opponentRating) {
     return NaN;
   }
 
-  if (ratingDifference <= 2) {
-    return +(winnerRating + 2).toFixed(1);
-  }
-  if (ratingDifference < 20) {
-    return +(winnerRating + 1).toFixed(1);
-  }
   if (winnerRating < opponentRating) {
     return +(winnerRating + (ratingDifference + 5) / 3).toFixed(1);
   }
-  return +winnerRating.toFixed(1);
+
+  if (ratingDifference <= 2) {
+    return +(winnerRating + 2).toFixed(1);
+  } else if (ratingDifference < 20) {
+    return +(winnerRating + 1).toFixed(1);
+  } else {
+    return winnerRating;
+  }
 }
 
-const winnerRating = 1500;
-const opponentRating = 1400;
+const winnerRating = 50;
+const opponentRating = 60;
 const newRating = calculateWinnerRating(winnerRating, opponentRating);
-console.log(`Новий рейтинг переможця: ${newRating}`); 
+console.log(`Новий рейтинг переможця: ${newRating}`);
