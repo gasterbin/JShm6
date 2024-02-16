@@ -13,6 +13,10 @@ function calculateWinnerRating(winnerRating, opponentRating) {
     return NaN;
   }
 
+  if (winnerRating === 0) {
+    return opponentRating;
+  }
+
   if (winnerRating < opponentRating) {
     return +(winnerRating + (ratingDifference + 5) / 3).toFixed(1);
   }
@@ -26,7 +30,7 @@ function calculateWinnerRating(winnerRating, opponentRating) {
   }
 }
 
-const winnerRating = 50;
+const winnerRating = 0;
 const opponentRating = 60;
 const newRating = calculateWinnerRating(winnerRating, opponentRating);
 console.log(`Новий рейтинг переможця: ${newRating}`);
